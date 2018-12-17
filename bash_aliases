@@ -27,7 +27,7 @@ function buildbranch {
 }
 
 # Navigation aliases
-alias dev='cd /home/developer/development'
+alias dev='cd /home/developer/Development'
 alias ..='cd ..'
 alias ...='cd ../../'
 
