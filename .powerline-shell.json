@@ -1,0 +1,11 @@
+{
+  "segments": [
+    "time",
+    "username", 
+    "cwd", 
+    "git", 
+    "jobs", 
+    "root"
+  ],
+  "mode": "compatible"
+}

@@ -1,0 +1,13 @@
+echo "Custom bash prompt loaded."
+
+function _update_ps1() {
+  PS1=$(powerline-shell $?)
+}
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi

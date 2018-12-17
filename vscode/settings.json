@@ -1,0 +1,16 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.tabCompletion": "on",
+    "editor.tabSize": 2,
+    "editor.scrollBeyondLastLine": false,
+    "terminal.integrated.copyOnSelection": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "window.zoomLevel": 1,
+    "editor.fontSize": 15,
+    "editor.minimap.enabled": false,
+    "terminal.integrated.rendererType": "auto"
+}
