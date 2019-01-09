@@ -44,3 +44,7 @@ git config --global alias.co checkout
 
 alias backupTilix='dconf dump /com/gexperts/Tilix/ > tilix.dconf'
 alias loadTilix='dconf load /com/gexperts/Tilix/ < tilix.dconf'
+
+alias openghadv='open https://github.com/Sage/sage_one_advanced'
+alias openghui='open https://github.com/Sage/s1_gac_ui'
+
