@@ -48,3 +48,44 @@ alias loadTilix='dconf load /com/gexperts/Tilix/ < tilix.dconf'
 alias openghadv='open https://github.com/Sage/sage_one_advanced'
 alias openghui='open https://github.com/Sage/s1_gac_ui'
 
+rnt() {
+  if [ -z "$2" ];
+    then echo 'provide flag -i for improvements; -m for minor improvements; -b for bugs; -u for upgrade tasks';
+  else
+    renogen new S1T-$1;
+    if [ $2 == "-i" ];
+    then echo 'Improvements: "[S1T-'$1'](https://jira.sage.com/browse/S1T-'$1') - "' > './change_log/next/S1T-'$1'.yml';
+    elif [ $2 == "-m" ];
+    then echo 'Minor Improvements: "[S1T-'$1'](https://jira.sage.com/browse/S1T-'$1') - "' > './change_log/next/S1T-'$1'.yml';
+    elif [ $2 == "-b" ];
+    then echo 'Bugs: "[S1T-'$1'](https://jira.sage.com/browse/S1T-'$1') - "' > './change_log/next/S1T-'$1'.yml';
+    elif [ $2 == "-u" ];
+    then echo 'Upgrade Tasks: "[S1T-'$1'](https://jira.sage.com/browse/S1T-'$1') - "' > './change_log/next/S1T-'$1'.yml';
+    fi
+
+    vim -c 'startinsert' ./change_log/next/S1T-$1.yml;
+    git add ./change_log/next/S1T-$1.yml;
+    git commit -m 'S1T-'$1': Release notes';
+    # git push;
+  fi
+}
+
+rbms() {
+  if [ -z "$1" ];
+    then echo 'provide target branch';
+  else
+    echo 'Stashing ...'
+    git stash;
+    echo 'Get master ...'
+    if [ -z "$2" ];
+    then gc master; git pull origin master;
+    else gc $2; git pull origin $2;
+    fi
+    echo 'Switch to branch ...'
+    gc $1;
+    echo 'Rebase ...'
+    git rebase master;
+    echo 'Unstash ...'
+    git stash pop;
+  fi
+}
