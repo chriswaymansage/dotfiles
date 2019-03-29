@@ -89,3 +89,5 @@ rbms() {
     git stash pop;
   fi
 }
+
+alias containers='docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}''
